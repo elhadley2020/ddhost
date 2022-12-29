@@ -9,15 +9,15 @@ import (
 func main(){
 		http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request){
 			if r.Host == "localhost"{
-				head:="<html><head><title></tile></head><body>"
-				nav:="<body>"
+				head:="<html><head><title>"+r.Host+"</title></head><body>"
+				nav:="<body><nav><ul><li>"+ r.Host+"</li></ul></nav>"
 				fmt.Println(r.Host)
-				body:= r.Host
+				body:= "<main><h1>Testing</h1></main>"
 				footer:="</body></html>"
 				fmt.Fprintf(w, head+ nav + body + footer)
 			}
 			if r.Host == "dcescorts.tk"{
-				head:="<html><head><title></tile></head><body>"
+				head:="<html><head><title></title></head><body>"
 				nav:="<body>"
 				body:= r.Host
 				footer:="</body></html>"
@@ -32,5 +32,5 @@ func main(){
 				fmt.Fprintf(w, head+ nav + body + footer)
 			}
 		})
-	http.ListenAndServe("127.0.0.1:80", nil)
+	http.ListenAndServe(":80", nil)
 }
