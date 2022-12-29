@@ -17,11 +17,12 @@ func main(){
 				fmt.Fprintf(w, head+ nav + body + footer)
 			}
 			if r.Host == "dcescorts.tk"{
-				head:="<html><head><title></title></head><body>"
-				nav:="<body>"
-				body:= r.Host
+				head:="<html><head><title>"+r.Host+"</title>"
+				style:="<style>li a{display:block;color:white;text-align:center;padding:14px 16px;text-decoration:none;}li{float:left;}ul{overflow:hidden;background-color:#333;list-style-type:none;margin:0;padding:0;}</style>"
+				nav:="</head><body><nav><ul><li><a href=''>"+r.Host+"</a></li></ul></nav>"
+				body:= "<main>"+r.Host+"</main>"
 				footer:="</body></html>"
-				fmt.Fprintf(w, head+ nav + body + footer)
+				fmt.Fprintf(w, head+ style+ nav + body + footer)
 			}
 			if r.Host == "vaescorts.tk"{
 				head:="<html><head><title></tile></head><body>"
